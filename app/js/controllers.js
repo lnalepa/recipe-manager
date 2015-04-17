@@ -1,7 +1,3 @@
-'use strict';
-
-/* Controllers */
-
 var recipeManagerControllers = angular.module('recipeManagerControllers', []);
 
 recipeManagerControllers.controller('RecipesCtrl', ['$scope', '$http',
