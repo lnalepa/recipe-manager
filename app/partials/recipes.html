@@ -1,26 +1,24 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-2">
-      <!--Sidebar content-->
-
-      
+<!--     <div class="col-md-2"> 
       Search: <input ng-model="query">
       Sort by:
       <select ng-model="orderProp">
         <option value="name">Alphabetical</option>
         <option value="age">Newest</option>
       </select>
+    </div> -->
 
-    </div>
-    <div class="col-md-10">
-      <!--Body content-->
+    <div class="col-md-12">
+      <h1>Recipes</h1>
 
       <ul class="recipes">
-        <li ng-repeat="recipe in recipes | filter:query | orderBy:orderProp" class="thumbnail">
-          <a href="#/recipes/{{recipe.id}}">{{recipe.name}}</a>
-          <p>{{recipe.date}}</p>
+        <li ng-repeat="recipe in recipes | filter:query | orderBy:orderProp" class="thumbnail col-md-4">
+          <a href="#/recipes/{{recipe.id}}">{{recipe.title}}</a>
+          <p>Date added: {{recipe.added}}</p>
         </li>
       </ul>
+      </div>
 
     </div>
   </div>

@@ -1,0 +1,6 @@
+<h1>{{recipe.title}}</h1>
+<p>Date added: {{recipe.added}}</p>
+<span>tags: </span><span ng-repeat="tag in recipe.tags">{{tag}} </span>
+<p>Cook time: {{recipe.time}}</p>
+<span>Ingredients:</span><p ng-repeat="ingredient in recipe.ingredients"> {{ingredient.qty}} {{ingredient.units}} {{ingredient.ingredient}}</p>
+<p>Instructions: {{recipe.instructions}}</p>
