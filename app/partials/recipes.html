@@ -14,7 +14,7 @@
 
       <ul class="recipes">
         <li ng-repeat="recipe in recipes | filter:query | orderBy:orderProp" class="thumbnail col-md-4">
-          <a href="#/recipes/{{recipe.id}}">{{recipe.title}}</a>
+          <a href="#/recipes/{{recipe._id}}">{{recipe.title}}</a>
           <p>Date added: {{recipe.added}}</p>
         </li>
       </ul>
