@@ -39,7 +39,7 @@
          },
          {  
             "qty":1.5,
-            "units":"cups",
+            "units":"cup",
             "ingredient":"flour"
          }
       ],

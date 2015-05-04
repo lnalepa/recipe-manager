@@ -27,6 +27,7 @@ recipeManagerControllers.controller('RecipeDetailCtrl', ['$scope', '$routeParams
 
 
   $scope.recipeId = $routeParams.recipeId;
+  $scope.units = ['mL', 'pinch', 'whole', 'cup', 'pound', 'can', 'package'];
 
   if ($scope.recipeId !== 'new') {
     $http.get('/api/recipe/'+ $scope.recipeId).success(function(data) {
