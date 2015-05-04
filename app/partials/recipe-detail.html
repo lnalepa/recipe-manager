@@ -2,7 +2,7 @@
 	<form>
 		<input type="hidden" id="recipeId" value="{{recipeId}}"/>
 
-		<h1><input type="text" value="{{recipe.title}}" name="title" id="title" class="form-control"></h1>
+		<div class="header"><h1><input type="text" value="{{recipe.title}}" name="title" id="title" class="form-control"></h1></div>
 		<p>Date: <input type="text" value="{{recipe.added}}" name="added" id="added" class="form-control"/></p>
 		<span>tags: </span><span ng-repeat="tag in recipe.tags" class="tags">{{tag}} </span>
 		<p>Cook time: <input type="text" value="{{recipe.time}}" name="time" id="time" class="form-control"></p>

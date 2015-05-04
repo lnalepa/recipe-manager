@@ -1,8 +1,8 @@
 <div class="container-fluid col-md-12">
-  <h1>Recipes</h1>
-  <div><a href="#/recipes/new"><i class="fa fa-plus"></i></a></div>
+  <div class="header"><h1>Recipes</h1><a href="#/recipes/new" class="floatRight"><i class="fa fa-plus"></i></a></div>
   
-  <div class="row col-md-12">
+  
+  <div>
 <!--     <div class="col-md-2"> 
       Search: <input ng-model="query">
       Sort by:
@@ -14,10 +14,11 @@
 
     <div>
       <ul class="recipes">
-        <li ng-repeat="recipe in recipes | orderBy:orderProp track by $index" class="thumbnail col-md-4">
-          <i class="fa fa-times" ng-click="deleteRecipe(recipe._id);"></i>
-          <a href="#/recipes/{{recipe._id}}">{{recipe.title}}</a>
-          <p>Date added: {{recipe.added}}</p>
+        <li ng-repeat="recipe in recipes | orderBy:orderProp track by $index" class="col-md-4 recipe">
+          <div class="thumbnail recipe-content">
+            <h2><a href="#/recipes/{{recipe._id}}">{{recipe.title}}</a></h2><i class="fa fa-times floatRight" ng-click="deleteRecipe(recipe._id);"></i>
+            <p>Date added: {{recipe.added}}</p>
+          </div> 
         </li>
       </ul>
     </div>

@@ -1,5 +1,22 @@
+h1, h2 {
+	display: inline;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+}
+
+li {
+	list-style: none;
+}
+
 i {
 	cursor: pointer;
+}
+
+.header {
+	padding: 25px 15px;
 }
 
 .form-control {
@@ -7,4 +24,12 @@ i {
 	display: inline;
 	font-size: inherit;
 	height: inherit;
+}
+
+.floatRight {
+	float: right;
+}
+
+.recipe-content {
+	padding: 15px;
 }
