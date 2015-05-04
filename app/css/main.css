@@ -1,0 +1,10 @@
+i {
+	cursor: pointer;
+}
+
+.form-control {
+	width: inherit;
+	display: inline;
+	font-size: inherit;
+	height: inherit;
+}

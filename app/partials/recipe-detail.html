@@ -1,6 +1,19 @@
-<h1>{{recipe.title}}</h1>
-<p>Date added: {{recipe.added}}</p>
-<span>tags: </span><span ng-repeat="tag in recipe.tags">{{tag}} </span>
-<p>Cook time: {{recipe.time}}</p>
-<span>Ingredients:</span><p ng-repeat="ingredient in recipe.ingredients"> {{ingredient.qty}} {{ingredient.units}} {{ingredient.ingredient}}</p>
-<p>Instructions: {{recipe.instructions}}</p>
+<div class="col-md-12">
+	<form>
+		<input type="hidden" id="recipeId" value="{{recipeId}}"/>
+
+		<h1><input type="text" value="{{recipe.title}}" name="title" id="title" class="form-control"></h1>
+		<p>Date: <input type="text" value="{{recipe.added}}" name="added" id="added" class="form-control"/></p>
+		<span>tags: </span><span ng-repeat="tag in recipe.tags" class="tags">{{tag}} </span>
+		<p>Cook time: <input type="text" value="{{recipe.time}}" name="time" id="time" class="form-control"></p>
+		<span>Ingredients:</span>
+		<p ng-repeat="ingredient in recipe.ingredients" class="ingredients"> 
+			<input value="{{ingredient.qty}}"  class="qty form-control"/>
+			<input value="{{ingredient.units}}" class="units form-control"/>
+			<input value="{{ingredient.ingredient}}" class="ingredient form-control"/>
+		</p>
+		<p>Instructions:<input type="text" value="{{recipe.instructions}}" name="instructions" id="instructions" class="form-control"></p>
+
+		<button ng-click="save()" class="btn">SAVE</button>
+	</form>
+</div>

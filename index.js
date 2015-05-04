@@ -4,7 +4,8 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/recipes');
 
 // Create a server with a host and port
-var server = new Hapi.Server();
+// var server = new Hapi.Server();
+var server = new Hapi.Server({ debug: { request: ['error'] } });
 server.connection({ 
     host: 'localhost', 
     port: 8000 
@@ -19,7 +20,7 @@ var recipeSchema = new Schema({
   added: { type: Date, default: Date.now },
   title:  {type: String, required: true},
   time: {type: Number, required: true},
-  instructions: {type:String, required: true}
+  instructions: {type: String, required: true}
 });
 
 var Recipes = mongoose.model('Recipes', recipeSchema);
@@ -47,7 +48,7 @@ server.route({
 	method: 'GET',
 	path: '/api/recipe/{id?}',
 	handler: function (request, reply) {
-		if (request.params.id) {
+		if(request.params.id) {
 	  	Recipes.findById(request.params.id, function(err, recipe){
 	  		if (err) return reply('error: ' + err)
 	  		else return reply(recipe)
@@ -95,6 +96,7 @@ server.route({
     method: 'POST',
     path: '/api/recipe',
     handler: function (request, reply) {
+    	console.log(request.payload);
     	Recipes.create(request.payload, function(err, recipe){
     		if (err) return reply('error creating: ' + err)
     		else return reply(recipe)
