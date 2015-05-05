@@ -48,6 +48,18 @@ recipeManagerControllers.controller('RecipeDetailCtrl', ['$scope', '$routeParams
      $scope.recipe = placeholder;
   }
 
+  $scope.deleteIngredient = function(index){
+    delete $scope.recipe.ingredients[index];
+  }
+
+  $scope.addIngredient = function (){
+    var newIngredient = {};
+    newIngredient.qty = '';
+    newIngredient.units = '';
+    newIngredient.ingredient = '';
+    $scope.recipe.ingredients.push(newIngredient);
+  }
+
   
   function save() {
     var id;
