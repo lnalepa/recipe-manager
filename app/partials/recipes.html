@@ -3,14 +3,21 @@
   
   
   <div>
-<!--     <div class="col-md-2"> 
+    <div class="col-md-12"> 
       Search: <input ng-model="query">
-      Sort by:
+      By: 
+      <select ng-model="searchBy">
+        <option value="title">Title</option>
+        <option value="added">Date Added</option>
+        <option value="tags">Tags</option>
+      </select>
+<!--       Sort by:
       <select ng-model="orderProp">
         <option value="name">Alphabetical</option>
         <option value="age">Newest</option>
-      </select>
-    </div> -->
+      </select> -->
+      <button ng-click="search(query, searchBy)" class="btn">SEARCH</button>
+    </div>
 
     <div>
       <ul class="recipes">

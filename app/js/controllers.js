@@ -5,6 +5,18 @@ recipeManagerControllers.controller('RecipesCtrl', ['$scope', '$http', function(
     $scope.recipes = data;
   });
 
+  $scope.search = function(query, field){
+    if (query && field) {
+      $http.get('/api/recipe?' + field + '=' + query).success(function(data) {
+        $scope.recipes = data;
+      });
+    }  else {
+      $http.get('/api/recipe').success(function(data) {
+        $scope.recipes = data;
+      });
+    }
+  }
+
   function deleteRecipe(id) {
     $http.delete('/api/recipe/'+id).success(function(data) {
     });
