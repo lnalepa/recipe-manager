@@ -41,7 +41,7 @@ server.route({
     		if (err) return reply('error seeding: ' + err)
     		else return reply(records)
     	});
-		}
+	}
 });
 
 server.route({
@@ -89,7 +89,7 @@ server.route({
     		if (err) return reply('error updating: ' + err)
     		else return reply(recipe)
     	})
-		}
+	}
 });
 
 server.route({
@@ -101,7 +101,7 @@ server.route({
     		if (err) return reply('error creating: ' + err)
     		else return reply(recipe)
     	})
-		}
+	}
 });
 
 server.route({
@@ -112,7 +112,7 @@ server.route({
     		if (err) return reply('error deleting: ' + err)
     		else return reply(recipe)
     	})
-		}
+	}
 });
 
 server.route({

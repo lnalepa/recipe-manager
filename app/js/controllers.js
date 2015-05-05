@@ -1,9 +1,20 @@
 var recipeManagerControllers = angular.module('recipeManagerControllers', []);
 
-recipeManagerControllers.controller('RecipesCtrl', ['$scope', '$http', function($scope, $http) {
-  $http.get('/api/recipe').success(function(data) {
-    $scope.recipes = data;
-  });
+recipeManagerControllers.controller('RecipesCtrl', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
+  
+
+  if ($rootScope.tag) {
+    $http.get('/api/recipe?tags=' + $rootScope.tag).success(function(data) {
+      $scope.recipes = data;
+    });
+  } else {
+    $http.get('/api/recipe').success(function(data) {
+      $scope.recipes = data;
+    });
+  }
+
+
+  $scope.orderProp = 'title';
 
   $scope.search = function(query, field){
     if (query && field) {
@@ -15,6 +26,7 @@ recipeManagerControllers.controller('RecipesCtrl', ['$scope', '$http', function(
         $scope.recipes = data;
       });
     }
+    // $scope.orderProp = sort;
   }
 
   function deleteRecipe(id) {
@@ -27,17 +39,12 @@ recipeManagerControllers.controller('RecipesCtrl', ['$scope', '$http', function(
 
   $scope.deleteRecipe = deleteRecipe; 
 
-  $scope.orderProp = 'title';
+  
 }]);
 
 
-recipeManagerControllers.controller('RecipeDetailCtrl', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
+recipeManagerControllers.controller('RecipeDetailCtrl', ['$scope', '$routeParams', '$http', '$location', '$rootScope', function($scope, $routeParams, $http, $location, $rootScope) {
     
-  // if ($routeParams.recipeId === 'new') {
-  //   $routeParams.recipeId = '';
-  // }
-
-
   $scope.recipeId = $routeParams.recipeId;
   $scope.units = ['mL', 'pinch', 'whole', 'cup', 'pound', 'can', 'package'];
 
@@ -64,6 +71,14 @@ recipeManagerControllers.controller('RecipeDetailCtrl', ['$scope', '$routeParams
     delete $scope.recipe.ingredients[index];
   }
 
+  $scope.deleteTag = function(index){
+    // delete $scope.recipe.tags[index];
+    // tagToDelete = $scope.recipe.tags[index],
+    // position = tag_story.indexOf(id_tag);
+
+    if ( ~index ) $scope.recipe.tags.splice(index, 1);
+  }
+
   $scope.addIngredient = function (){
     var newIngredient = {};
     newIngredient.qty = '';
@@ -72,21 +87,39 @@ recipeManagerControllers.controller('RecipeDetailCtrl', ['$scope', '$routeParams
     $scope.recipe.ingredients.push(newIngredient);
   }
 
+  $scope.searchByTag = function (index){
+    $location.path('#/recipes');
+    $rootScope.tag = $scope.recipe.tags[index];
+  }
+
+  $(document).ready(function() {
+    $( ".tag-input" ).keypress(function( event ) {
+      if ( event.which == 32 ) {
+        if ($(this).val() !== '') {
+          createTag($(this).val());
+        }
+      }
+    });
+  });
+
+  function createTag(tag) {
+    $scope.recipe.tags[$scope.recipe.tags.length] = tag;
+    $scope.$apply();
+    $( ".tag-input" ).val('');
+  }
+
   
   function save() {
     var id;
-    // if ($("#recipeId").val() === 'new') {
-    //   id = ''; 
-    // } else {
-      id = $("#recipeId").val();
-    // }
-    // var recipeData = JSON.stringify($('form').serializeArray());
+    id = $("#recipeId").val();
+
     var recipeData = {};
     recipeData["title"] = $("#title").val();
     var tags = [];
     $(".tags").each(function() {
       var tag = $(this).html();
-      tags.push(tag);   
+      tags.push(tag); 
+      console.log(tags);  
     });
     recipeData["tags"] = tags;
     recipeData["added"] = $("#added").val();

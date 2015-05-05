@@ -4,14 +4,22 @@
 
 		<div class="header"><h1><input type="text" value="{{recipe.title}}" name="title" id="title" class="form-control"></h1></div>
 		<p>Date: <input type="text" value="{{recipe.added}}" name="added" id="added" class="form-control"/></p>
-		<span>tags: </span><span ng-repeat="tag in recipe.tags" class="tags">{{tag}} </span>
+		<div>
+			<span>tags: </span>
+			<div class="form-control">
+				<span ng-repeat="tag in recipe.tags" class="tag">
+					<span class="tags" ng-click="searchByTag($index)">{{tag}}</span>
+					<i class="fa fa-times" ng-click="deleteTag($index);"></i>
+				</span>
+			<input value="" class="tag-input"/></div>
+		</div>
 		<p>Cook time: <input type="text" value="{{recipe.time}}" name="time" id="time" class="form-control"></p>
 		<span>Ingredients:</span> <i class="fa fa-plus" ng-click="addIngredient();"></i>
 		<p ng-repeat="ingredient in recipe.ingredients track by $index" class="ingredients"> 
 			<input value="{{ingredient.qty}}"  class="qty form-control"/>
 			<select data-ng-options="unit for unit in units" data-ng-model="ingredient.units"></select>
 			<input value="{{ingredient.ingredient}}" class="ingredient form-control"/>
-			<i class="fa fa-times" ng-click="deleteIngredient($index);">
+			<i class="fa fa-times" ng-click="deleteIngredient($index);"></i>
 		</p>
 		<p>Instructions:<textarea id="instructions" class="form-control">{{recipe.instructions}}</textarea></p>
 
