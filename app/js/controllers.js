@@ -118,8 +118,7 @@ recipeManagerControllers.controller('RecipeDetailCtrl', ['$scope', '$routeParams
     var tags = [];
     $(".tags").each(function() {
       var tag = $(this).html();
-      tags.push(tag); 
-      console.log(tags);  
+      tags.push(tag)
     });
     recipeData["tags"] = tags;
     recipeData["added"] = $("#added").val();
@@ -130,7 +129,8 @@ recipeManagerControllers.controller('RecipeDetailCtrl', ['$scope', '$routeParams
     $(".ingredients").each(function() {
       var ingredient = {};
       ingredient["qty"] = $(this).children(".qty").val();
-      ingredient["units"] = $(this).children(".units").val();
+      var e = $(this).children(".units")[0];
+      ingredient["units"] = e.options[e.selectedIndex].text; 
       ingredient["ingredient"] = $(this).children(".ingredient").val();
       ingredients.push(ingredient);   
     });
@@ -144,8 +144,8 @@ recipeManagerControllers.controller('RecipeDetailCtrl', ['$scope', '$routeParams
         id = $("#recipeId").val();
       });
       setTimeout(function(){ 
-        $http.get('/api/recipe/'+ id).success(function(data) {
-          $scope.recipe = data;
+        $rootScope.$apply(function() {
+          $location.path('/recipes');
         });
       }, 1000);
 
