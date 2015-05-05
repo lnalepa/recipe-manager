@@ -11,6 +11,12 @@ li {
 	list-style: none;
 }
 
+textarea.form-control {
+ 	min-width: 428px;
+ 	min-height: 100px;
+	display: block;
+}
+
 i {
 	cursor: pointer;
 }

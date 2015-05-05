@@ -7,9 +7,12 @@
       Search: <input ng-model="query">
       By: 
       <select ng-model="searchBy">
+        <option value="" disabled="disabled" selected="true">Select Search Criteria</option>
         <option value="title">Title</option>
         <option value="added">Date Added</option>
         <option value="tags">Tags</option>
+        <option value="time">Time</option>
+        <option value="ingredients">Ingredients</option>
       </select>
 <!--       Sort by:
       <select ng-model="orderProp">

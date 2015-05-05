@@ -13,7 +13,7 @@
 			<input value="{{ingredient.ingredient}}" class="ingredient form-control"/>
 			<i class="fa fa-times" ng-click="deleteIngredient($index);">
 		</p>
-		<p>Instructions:<input type="text" value="{{recipe.instructions}}" name="instructions" id="instructions" class="form-control"></p>
+		<p>Instructions:<textarea id="instructions" class="form-control">{{recipe.instructions}}</textarea></p>
 
 		<button ng-click="save()" class="btn">SAVE</button>
 	</form>
