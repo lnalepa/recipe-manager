@@ -3,7 +3,7 @@
   
   
   <div>
-    <div class="col-md-12"> 
+    <div class="col-md-10"> 
       Search: <input ng-model="query">
       By: 
       <select ng-model="searchBy">
@@ -13,17 +13,22 @@
         <option value="time">Time</option>
         <option value="ingredients">Ingredients</option>
       </select>
-      Sort by:
-<!--       <select ng-model="sort">
-        <option value="title">Alphabetical</option>
-        <option value="added">Newest</option>
-      </select> -->
       <button ng-click="search(query, searchBy)" class="btn">SEARCH</button>
     </div>
 
+    <div class="col-md-2">
+      Sort by:
+      <select id="sort">
+        <option value="title">Alphabetical</option>
+        <option value="newest">Newest</option>
+        <option value="oldest">Oldest</option>
+      </select>
+    </div>
+
+
     <div>
       <ul class="recipes">
-        <li ng-repeat="recipe in recipes | orderBy:orderProp track by $index" class="col-md-4 recipe">
+        <li ng-repeat="recipe in recipes" class="col-md-4 recipe">
           <div class="thumbnail recipe-content">
             <h2><a href="#/recipes/{{recipe._id}}">{{recipe.title}}</a></h2><i class="fa fa-times floatRight" ng-click="deleteRecipe(recipe._id);"></i>
             <p>Date added: {{recipe.added}}</p>

@@ -1,20 +1,49 @@
 var recipeManagerControllers = angular.module('recipeManagerControllers', []);
 
-recipeManagerControllers.controller('RecipesCtrl', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
+recipeManagerControllers.controller('RecipesCtrl', ['$scope', '$http', '$rootScope', '$filter', function($scope, $http, $rootScope, $filter) {
   
 
   if ($rootScope.tag) {
     $http.get('/api/recipe?tags=' + $rootScope.tag).success(function(data) {
-      $scope.recipes = data;
+        setTimeout(function(){ 
+        $scope.recipes = $filter('orderBy')(data, 'title', false);
+        $scope.$apply();
+      }, 50);
     });
   } else {
     $http.get('/api/recipe').success(function(data) {
-      $scope.recipes = data;
+      setTimeout(function(){ 
+        $scope.recipes = $filter('orderBy')(data, 'title', false);
+        $scope.$apply();
+      }, 50);
     });
   }
 
 
-  $scope.orderProp = 'title';
+
+  $(document).ready(function() {
+      
+
+
+      
+
+    $("#sort").change(function() {
+      var sortValue = $("#sort").val();
+      var orderProp; 
+      var reverse = false;
+      if (sortValue === 'newest') {
+        orderProp = 'added';
+        reverse = true;
+      } else if (sortValue === 'oldest') {
+        orderProp = 'added';
+
+      } else {
+        orderProp = sortValue;
+      }
+      $scope.recipes = $filter('orderBy')($scope.recipes, orderProp, reverse);
+      $scope.$apply();
+    });
+  });
 
   $scope.search = function(query, field){
     if (query && field) {
@@ -26,7 +55,7 @@ recipeManagerControllers.controller('RecipesCtrl', ['$scope', '$http', '$rootSco
         $scope.recipes = data;
       });
     }
-    // $scope.orderProp = sort;
+    
   }
 
   function deleteRecipe(id) {
@@ -151,11 +180,11 @@ recipeManagerControllers.controller('RecipeDetailCtrl', ['$scope', '$routeParams
         $("#recipeId").val($scope.recipe._id);
         id = $("#recipeId").val();
       });
-      setTimeout(function(){ 
+      // setTimeout(function(){ 
         $rootScope.$apply(function() {
           $location.path('/recipes');
         });
-      }, 1000);
+      // }, 100);
 
       
     } else {
