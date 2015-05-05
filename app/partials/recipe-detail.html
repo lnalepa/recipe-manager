@@ -3,27 +3,31 @@
 		<input type="hidden" id="recipeId" value="{{recipeId}}"/>
 
 		<div class="header"><h1><input type="text" value="{{recipe.title}}" name="title" id="title" class="form-control"></h1></div>
-		<p>Date: <input type="text" value="{{recipe.added}}" name="added" id="added" class="form-control"/></p>
-		<p>
-			<span>tags: </span>
-			<span class="form-control tag-panel">
-				<span ng-repeat="tag in recipe.tags" class="tag">
-					<span class="tags" ng-click="searchByTag($index)">{{tag}}</span>
-					<i class="fa fa-times" ng-click="deleteTag($index);"></i>
-				</span>
-				<input value="" class="tag-input"/>
-			</span>
-		</p>
-		<p>Cook time: <input type="text" value="{{recipe.time}}" name="time" id="time" class="form-control"></p>
-		<span>Ingredients:</span> <i class="fa fa-plus" ng-click="addIngredient();"></i>
-		<p ng-repeat="ingredient in recipe.ingredients track by $index" class="ingredients"> 
-			<input value="{{ingredient.qty}}"  class="qty form-control"/>
-			<select data-ng-options="unit for unit in units" ng-model="ingredient.units" class="form-control units"></select>
-			<input value="{{ingredient.ingredient}}" class="ingredient form-control"/>
-			<i class="fa fa-times" ng-click="deleteIngredient($index);"></i>
-		</p>
-		<p>Instructions:<textarea id="instructions" class="form-control">{{recipe.instructions}}</textarea></p>
 
-		<button ng-click="save()" class="btn btn-default">SAVE</button>
+		<div class="recipe-detail">
+			<p>Date: <input type="text" value="{{recipe.added}}" name="added" id="added" class="form-control"/></p>
+			<p>
+				<span>Tags: </span>
+				<span class="form-control tag-panel">
+					<span ng-repeat="tag in recipe.tags" class="tag">
+						<span class="tags" ng-click="searchByTag($index)">{{tag}}</span>
+						<i class="fa fa-times" ng-click="deleteTag($index);"></i>
+					</span>
+					<input value="" class="tag-input"/>
+				</span>
+			</p>
+			<p>Cook time: <input type="text" value="{{recipe.time}}" name="time" id="time" class="form-control"></p>
+			<span>Ingredients:</span> <i class="fa fa-plus" ng-click="addIngredient();"></i>
+			<p ng-repeat="ingredient in recipe.ingredients track by $index" class="ingredients"> 
+				<input value="{{ingredient.qty}}"  class="qty form-control"/>
+				<select data-ng-options="unit for unit in units" ng-model="ingredient.units" class="form-control units"></select>
+				<input value="{{ingredient.ingredient}}" class="ingredient form-control"/>
+				<i class="fa fa-times" ng-click="deleteIngredient($index);"></i>
+			</p>
+			<p>Instructions:<textarea id="instructions" class="form-control">{{recipe.instructions}}</textarea></p>
+		</div>
+		<div class="footer">
+			<button ng-click="save()" class="btn btn-default">SAVE</button>
+		</div>
 	</form>
 </div>
