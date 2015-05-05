@@ -100,6 +100,14 @@ recipeManagerControllers.controller('RecipeDetailCtrl', ['$scope', '$routeParams
         }
       }
     });
+
+    $( ".tag-input").focus(function() {
+      $(".tag-panel").addClass('active');
+    });
+    $( ".tag-input").blur(function() {
+      $(".tag-panel").removeClass('active');
+    });
+
   });
 
   function createTag(tag) {
