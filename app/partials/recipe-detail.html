@@ -18,12 +18,12 @@
 		<span>Ingredients:</span> <i class="fa fa-plus" ng-click="addIngredient();"></i>
 		<p ng-repeat="ingredient in recipe.ingredients track by $index" class="ingredients"> 
 			<input value="{{ingredient.qty}}"  class="qty form-control"/>
-			<select data-ng-options="unit for unit in units" ng-model="ingredient.units" class="units"></select>
+			<select data-ng-options="unit for unit in units" ng-model="ingredient.units" class="form-control units"></select>
 			<input value="{{ingredient.ingredient}}" class="ingredient form-control"/>
 			<i class="fa fa-times" ng-click="deleteIngredient($index);"></i>
 		</p>
 		<p>Instructions:<textarea id="instructions" class="form-control">{{recipe.instructions}}</textarea></p>
 
-		<button ng-click="save()" class="btn">SAVE</button>
+		<button ng-click="save()" class="btn btn-default">SAVE</button>
 	</form>
 </div>

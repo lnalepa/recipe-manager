@@ -28,6 +28,9 @@ i {
 .form-control {
 	width: inherit;
 	display: inline;
+}
+
+input.form-control {
 	font-size: inherit;
 	height: inherit;
 }
@@ -61,4 +64,9 @@ i {
 	padding: 2px 5px;
 	margin-right: 2px;
 	cursor: pointer;
+}
+
+.utilities {
+	padding: 10px 0 25px;
+	overflow: hidden;
 }
