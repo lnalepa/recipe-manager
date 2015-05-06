@@ -19,14 +19,12 @@
 				</span>
 			</p>
 			<p class="item"><span class="label">Cook time: </span><input type="text" value="{{recipe.time}}" name="time" id="time" class="form-control"></p>
-			<p>
 				<span class="label">Ingredients:</span> <i class="fa fa-plus" ng-click="addIngredient();"></i>
 				<p ng-repeat="ingredient in recipe.ingredients track by $index" class="ingredients"> 
-					<input value="{{ingredient.qty}}"  class="qty form-control"/>
-					<select data-ng-options="unit for unit in units" ng-model="ingredient.units" class="form-control units"></select>
-					<input value="{{ingredient.ingredient}}" class="ingredient form-control"/>
-					<i class="fa fa-times" ng-click="deleteIngredient($index);"></i>
-				</p>
+				<input value="{{ingredient.qty}}"  class="qty form-control"/>
+				<select data-ng-options="unit for unit in units" ng-model="ingredient.units" class="form-control units"></select>
+				<input value="{{ingredient.ingredient}}" class="ingredient form-control"/>
+				<i class="fa fa-times" ng-click="deleteIngredient($index);"></i>
 			</p>
 			<p class="item"><span class="label">Instructions: </span><textarea id="instructions" class="form-control">{{recipe.instructions}}</textarea></p>
 		</div>

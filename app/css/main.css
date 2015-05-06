@@ -59,10 +59,11 @@ input.form-control {
 
 .recipe-detail .form-control, .recipe-detail select, .recipe-detail textarea {
 	margin-top: 3px;
+	margin-bottom: 2px;
 }
 
 .recipe-detail .ingredients input, .recipe-detail .ingredients select {
-	width: 144px;
+	width: 32%;
 	display: inline;
 }
 
