@@ -78,3 +78,21 @@ input.form-control {
 	padding: 10px 0 25px;
 	overflow: hidden;
 }
+
+.label {
+	color: #666;
+	font-weight:300;
+	font-size: 16px;
+	padding: 0;
+	padding-right: 4px;
+}
+
+.item {
+	padding: 5px 0;
+}
+
+#title {
+	border:none;
+	box-shadow: none;
+	padding-left: 0;
+}

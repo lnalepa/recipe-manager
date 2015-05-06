@@ -19,14 +19,7 @@ recipeManagerControllers.controller('RecipesCtrl', ['$scope', '$http', '$rootSco
     });
   }
 
-
-
   $(document).ready(function() {
-      
-
-
-      
-
     $("#sort").change(function() {
       var sortValue = $("#sort").val();
       var orderProp; 
@@ -82,18 +75,19 @@ recipeManagerControllers.controller('RecipeDetailCtrl', ['$scope', '$routeParams
       $scope.recipe = data;
     });
   } else {
-     var placeholder = {};
-     placeholder["tags"] = [];
-     placeholder["ingredients"] = [{}];
-     placeholder["ingredients"][0].qty = '';
-     placeholder["ingredients"][0].units = '';
-     placeholder["ingredients"][0].ingredient = '';
-     placeholder["added"] = '';
-     placeholder["title"] = '';
-     placeholder["time"] = '';
-     placeholder["instructions"] = '';
+    $("#title").focus();
+    var placeholder = {};
+    placeholder["tags"] = [];
+    placeholder["ingredients"] = [{}];
+    placeholder["ingredients"][0].qty = '';
+    placeholder["ingredients"][0].units = '';
+    placeholder["ingredients"][0].ingredient = '';
+    placeholder["added"] = '';
+    placeholder["title"] = '';
+    placeholder["time"] = '';
+    placeholder["instructions"] = '';
 
-     $scope.recipe = placeholder;
+    $scope.recipe = placeholder;
   }
 
   $scope.deleteIngredient = function(index){
