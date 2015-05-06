@@ -157,13 +157,23 @@ recipeManagerControllers.controller('RecipeDetailCtrl', ['$scope', '$routeParams
     recipeData["instructions"] = $("#instructions").val();
 
     var ingredients = [];
+    var qty;
+    var units;
+    var ingredient;
     $(".ingredients").each(function() {
       var ingredient = {};
-      ingredient["qty"] = $(this).children(".qty").val();
+      qty = $(this).children(".qty").val();
       var e = $(this).children(".units")[0];
-      ingredient["units"] = e.options[e.selectedIndex].text; 
-      ingredient["ingredient"] = $(this).children(".ingredient").val();
-      ingredients.push(ingredient);   
+      units = e.options[e.selectedIndex].text;
+      ingredient = $(this).children(".ingredient").val();
+
+      if (qty !== '' && units !== '' && ingredient !== '') {
+        ingredient["qty"] = qty;
+        ingredient["units"] = units;
+        ingredient["ingredient"] = ingredient;
+        ingredients.push(ingredient);   
+      }
+
     });
 
     recipeData["ingredients"] = ingredients;

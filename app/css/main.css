@@ -1,5 +1,18 @@
+body {
+	color: #666;
+}
+
 h1, h2 {
 	display: inline;
+}
+
+a {
+	color: #808080;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #666;
 }
 
 ul {
@@ -69,8 +82,8 @@ input.form-control {
 .tag {
 	background-color: #E2E2E2;
 	border-radius: 4px;
-	padding: 2px 5px 2px 10px;
-	margin-right: 2px;
+	padding: 2px 3px 2px 8px;
+	margin-right: 3px;
 	cursor: pointer;
 }
 
