@@ -5,8 +5,8 @@
   <div>
     <div class="utilities">
       <div class="col-md-6"> 
-        Search: <input ng-model="query" class="form-control">
-        By: 
+        <span class="label">Search: </span><input ng-model="query" class="form-control">
+        <span class="label">By: </span>
         <select ng-model="searchBy" class="form-control">
           <option value="" disabled="disabled" selected="true">Select Search Criteria</option>
           <option value="title">Title</option>
@@ -18,7 +18,7 @@
       </div>
 
       <div class="col-md-6">
-        Sort by:
+        <span class="label">Sort by: </span>
         <select id="sort" class="form-control">
           <option value="" disabled="disabled" selected="true">Select Sort Criteria</option>
           <option value="title">Alphabetical</option>
