@@ -1,5 +1,6 @@
 body {
-	color: #666;
+	color: #555;
+	margin-top: 20px;
 }
 
 h1, h2 {
@@ -12,7 +13,7 @@ a {
 
 a:hover {
 	text-decoration: none;
-	color: #666;
+	color: #555;
 }
 
 ul {
@@ -38,11 +39,15 @@ i {
 	padding: 25px 15px;
 }
 
+.header h1{
+	font-size: 42px;
+}
+
 .footer {
 	padding: 25px 15px;
 }
 
-.form-control {
+.recipes .form-control {
 	width: auto;
 	display: inline;
 }
@@ -50,6 +55,15 @@ i {
 input.form-control {
 	font-size: inherit;
 	height: inherit;
+}
+
+.recipe-detail .form-control, .recipe-detail select, .recipe-detail textarea {
+	margin-top: 3px;
+}
+
+.recipe-detail .ingredients input, .recipe-detail .ingredients select {
+	width: 144px;
+	display: inline;
 }
 
 .floatRight {
@@ -62,6 +76,11 @@ input.form-control {
 
 .recipe-detail {
 	padding: 0 15px;
+}
+
+.tag-panel {
+	height: 34px;
+	display: inline-block;
 }
 
 .tag-panel.active {
@@ -82,18 +101,18 @@ input.form-control {
 .tag {
 	background-color: #E2E2E2;
 	border-radius: 4px;
-	padding: 2px 3px 2px 8px;
+	padding: 3px 3px 3px 8px;
 	margin-right: 3px;
 	cursor: pointer;
 }
 
 .utilities {
-	padding: 10px 0 25px;
+	padding: 20px 0 45px;
 	overflow: hidden;
 }
 
 .label {
-	color: #666;
+	color: #555;
 	font-weight:300;
 	font-size: 16px;
 	padding: 0;
@@ -108,4 +127,20 @@ input.form-control {
 	border:none;
 	box-shadow: none;
 	padding-left: 0;
+}
+
+.search-panel button {
+	margin-left: 10px;
+}
+
+.search-panel input, .search-panel select {
+	margin-right: 10px;
+}
+
+.header .fa-plus {
+	font-size: 24px;
+}
+
+#added {
+	min-width: 250px;
 }
