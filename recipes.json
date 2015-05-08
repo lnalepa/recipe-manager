@@ -56,19 +56,286 @@
       ],
       "ingredients":[  
          {  
-            "qty":3,
+            "qty":4,
             "units":"whole",
             "ingredient":"avacados"
          },
          {  
-            "qty":1,
+            "qty":3,
             "units":"whole",
             "ingredient":"limes"
+         },
+         {  
+            "qty":2,
+            "units":"whole",
+            "ingredient":"tomatoes"
+         },
+         {  
+            "qty":1,
+            "units":"whole",
+            "ingredient":"white onion"
+         },          
+         {  
+            "qty":2,
+            "units":"clove",
+            "ingredient":"garlic"
+         },          
+         {  
+            "qty":0.5,
+            "units":"teaspoon",
+            "ingredient":"salt"
          }
       ],
       "added":"04/13/2014",
       "title":"Guacamole",
-      "time":0,
-      "instructions":"Mash avacado, add lime. Serve."
+      "time":0.25,
+      "instructions":"Place avocados in a bowl and mash with a fork. Immediately mix in remaining ingredients; serve immediately. Serve with fresh tortilla chips."
+   },
+   {  
+      "tags":[  
+         "arabic",
+         "chickpeas",
+         "appetizer",
+         "snack"
+      ],
+      "ingredients":[  
+         {  
+            "qty":1,
+            "units":"can",
+            "ingredient":"chickpeas"
+         },
+         {  
+            "qty":3,
+            "units":"clove",
+            "ingredient":"garlic"
+         },         
+         {  
+            "qty":2,
+            "units":"tablespoon",
+            "ingredient":"lemon juice"
+         }
+      ],
+      "added":"04/19/2012",
+      "title":"Hummus",
+      "time":0.25,
+      "instructions":"In a blender or food processor, combine chickpeas, lemon juice, and garlic. Blend until smooth."
+   },
+   {  
+      "tags":[  
+         "dessert",
+         "cookies",
+         "snack",
+         "peanuts",
+         "sweet"
+      ],
+      "ingredients":[  
+         {  
+            "qty":2,
+            "units":"cup",
+            "ingredient":"peanut butter"
+         },
+         {  
+            "qty":2,
+            "units":"cup",
+            "ingredient":"sugar"
+         },         
+         {  
+            "qty":2,
+            "units":"teaspoon",
+            "ingredient":"baking soda"
+         },
+         {  
+            "qty":2,
+            "units":"whole",
+            "ingredient":"eggs"
+         },
+         {  
+            "qty":1,
+            "units":"teaspoon",
+            "ingredient":"vanilla extract"
+         },
+         {  
+            "qty":1,
+            "units":"pinch",
+            "ingredient":"salt"
+         }
+      ],
+      "added":"08/09/2015",
+      "title":"Peanut Butter Cookies",
+      "time":1.5,
+      "instructions":"Preheat oven to 350 degrees F (175 degrees C). Grease cookie sheets. In a medium bowl, stir peanut butter and sugar together until smooth. Beat in the eggs, one at a time, then stir in the baking soda, salt, and vanilla. Roll dough into 1 inch balls and place them 2 inches apart onto the prepared cookie sheets. Press a criss-cross into the top using the back of a fork. Bake for 8 to 10 minutes in the preheated oven. Allow cookies to cool on baking sheet for 5 minutes before removing to a wire rack to cool completely."
+   },
+   {  
+      "tags":[  
+         "italian",
+         "pasta",
+         "dinner",
+         "cheese"
+      ],
+      "ingredients":[  
+         {  
+            "qty":1,
+            "units":"package",
+            "ingredient":"fettuccine pasta"
+         },
+         {  
+            "qty":2,
+            "units":"tablespoon",
+            "ingredient":"butter"
+         },         
+         {  
+            "qty":1,
+            "units":"jar",
+            "ingredient":"four-cheese Alfredo sauce"
+         },
+         {  
+            "qty":1,
+            "units":"tablespoon",
+            "ingredient":"ground black pepper"
+         }, 
+         {  
+            "qty":3,
+            "units":"tablespoon",
+            "ingredient":"grated Parmesan cheese"
+         }
+      ],
+      "added":"04/19/2012",
+      "title":"Fettuccine Alfredo",
+      "time":1,
+      "instructions":"Fill a large pot with water; add salt and bring to a rolling boil. Stir in fettuccine, bring back to a boil, and cook pasta, stirring 2 to 3 times using tongs, over medium heat until cooked through but still firm to the bite, about 10 to 12 minutes. Drain and return pasta to pot. Mix Alfredo sauce, butter, and black pepper into pasta using tongs. Transfer fettuccine Alfredo to a serving bowl and top with Parmesan cheese."
+   },    
+   {  
+      "tags":[  
+         "dinner",
+         "fish",
+         "seafood"
+      ],
+      "ingredients":[  
+         {  
+            "qty":4,
+            "units":"whole",
+            "ingredient":"skinless, boneless salmon fillets"
+         },
+         {  
+            "qty":3,
+            "units":"tablespoon",
+            "ingredient":"lemon juice"
+         },         
+         {  
+            "qty":0.5,
+            "units":"cup",
+            "ingredient":"melted margarine"
+         },         
+         {  
+            "qty":0.25,
+            "units":"cup",
+            "ingredient":"balsamic vinegar"
+         },
+         {  
+            "qty":2,
+            "units":"tablespoon",
+            "ingredient":"soy sauce"
+         },
+         {  
+            "qty":2,
+            "units":"tablespoon",
+            "ingredient":"sugar"
+         }, 
+         {
+            "qty":1,
+            "units":"clove",
+            "ingredient":"garlic"   
+         }
+      ],
+      "added":"07/23/2014",
+      "title":"Salmon",
+      "time":0.25,
+      "instructions":"Preheat oven to 375 degrees F (190 degrees C). Dip salmon fillets in melted margarine, covering both sides. Place in a baking dish. Drizzle lemon juice evenly over each fillet. Whisk balsamic vinegar, soy sauce, sugar, and garlic together in a bowl; spoon over salmon fillets. Bake in the preheated oven until fish is opaque and flakes easily with a fork, about 30 minutes. Remove from oven and cover with aluminum foil for 3 minutes before serving."
+   },   
+   {  
+      "tags":[  
+         "arabic",
+         "chickpeas",
+         "appetizer",
+         "snack"
+      ],
+      "ingredients":[  
+         {  
+            "qty":3,
+            "units":"cup",
+            "ingredient":"cooked macaroni"
+         },
+         {  
+            "qty":1,
+            "units":"can",
+            "ingredient":"tuna"
+         },         
+         {  
+            "qty":1,
+            "units":"can",
+            "ingredient":"condensed cream of chicken soup"
+         },          
+         {  
+            "qty":1.5,
+            "units":"cup",
+            "ingredient":"French fried onions"
+         },          
+         {  
+            "qty":1,
+            "units":"cup",
+            "ingredient":"shredded Cheddar cheese"
+         }
+      ],
+      "added":"08/29/2014",
+      "title":"Tuna Casserole",
+      "time":1.5,
+      "instructions":"Preheat oven to 350 degrees F (175 degrees C). In a 9x13-inch baking dish, combine the macaroni, tuna, and soup. Mix well, and then top with cheese. Bake at 350 degrees F (175 degrees C) for about 25 minutes, or until bubbly. Sprinkle with fried onions, and bake for another 5 minutes. Serve hot."
+   },
+   {  
+      "tags":[  
+         "vegetarian",
+         "vegetables",
+         "dinner"
+      ],
+      "ingredients":[  
+         {  
+            "qty":2,
+            "units":"whole",
+            "ingredient":"carrots"
+         },
+         {  
+            "qty":1,
+            "units":"whole",
+            "ingredient":"red bell pepper"
+         },         
+         {  
+            "qty":2,
+            "units":"tablespoon",
+            "ingredient":"vegetable oil"
+         },         {  
+            "qty":1,
+            "units":"clove",
+            "ingredient":"garlic"
+         },
+         {  
+            "qty":2,
+            "units":"tablespoon",
+            "ingredient":"soy sauce"
+         },
+         {  
+            "qty":1,
+            "units":"whole",
+            "ingredient":"green onion"
+         },
+         {  
+            "qty":2,
+            "units":"tablespoon",
+            "ingredient":"sesame seeds"
+         }
+      ],
+      "added":"04/19/2012",
+      "title":"Vegetable Stir-Fry",
+      "time":1,
+      "instructions":"Heat vegetable oil in a large wok or skillet over medium-high heat; Add broccoli, bell pepper, carrots, green onion, and garlic to the center of the wok. Cook and stir vegetables for 2 minutes. Season with soy sauce and sesame seeds. Continue to cook and stir until vegetables are tender, about 2 more minutes."
    }
 ]

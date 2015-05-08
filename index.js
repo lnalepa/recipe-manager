@@ -13,7 +13,7 @@ server.connection({
 
 //SETTING UP SCHEMAS, MODELS, METHODS
 var Schema = mongoose.Schema;
-var allowableUnits = ['mL', 'pinch', 'whole', 'cup', 'pound', 'can', 'package'];
+var allowableUnits = ['mL', 'pinch', 'whole', 'cup', 'pound', 'can', 'package', 'teaspoon', 'tablespoon', 'clove', 'jar'];
 var recipeSchema = new Schema({
   tags: [],
   ingredients: [{qty: Number, units: {type: String, enum: allowableUnits}, ingredient: String}],
