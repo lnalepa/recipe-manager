@@ -3,6 +3,9 @@ var Hapi = require('hapi');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/recipes');
 
+var moment = require('moment');
+moment().format();
+
 // Create a server with a host and port
 // var server = new Hapi.Server();
 var server = new Hapi.Server({ debug: { request: ['error'] } });

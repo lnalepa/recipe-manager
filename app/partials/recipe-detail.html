@@ -7,7 +7,21 @@
 		<div class="header"><h1><input type="text" value="{{recipe.title}}" name="title" id="title" class="form-control" placeholder="Name your recipe"></h1></div>
 
 		<div class="recipe-detail">
-			<p class="item"><span class="label">Date: </span><input type="text" value="{{recipe.added}}" name="added" id="added" class="form-control"/></p>
+			<p class="item" id="date-label">
+				<span class="label">Date: </span>
+
+			</p>
+			<div class="input-group date" id="datetimepicker">
+                <input type="text" value="{{recipe.added}}" class="form-control" id="added"/>
+                <span class="input-group-addon">
+                    <span class="fa fa-calendar"></span>
+                </span>
+            </div>
+
+		        							<!-- <input type="text" value="{{recipe.added}}" name="added" id="added" class="form-control"/> -->
+				<!-- <div class="container"> -->
+
+			
 			<p class="item">
 				<span class="label">Tags: </span>
 				<span class="form-control tag-panel">
@@ -21,11 +35,11 @@
 			<p class="item"><span class="label">Cook time: </span><input type="text" value="{{recipe.time}}" name="time" id="time" class="form-control"></p>
 				<span class="label">Ingredients:</span> <i class="fa fa-plus" ng-click="addIngredient();"></i>
 				<p ng-repeat="ingredient in recipe.ingredients track by $index" class="ingredients"> 
-				<input value="{{ingredient.qty}}"  class="qty form-control"/>
-				<select data-ng-options="unit for unit in units" ng-model="ingredient.units" class="form-control units"></select>
-				<input value="{{ingredient.ingredient}}" class="ingredient form-control"/>
-				<i class="fa fa-times" ng-click="deleteIngredient($index);"></i>
-			</p>
+					<input value="{{ingredient.qty}}"  class="qty form-control"/>
+					<select data-ng-options="unit for unit in units" ng-model="ingredient.units" class="form-control units"></select>
+					<input value="{{ingredient.ingredient}}" class="ingredient form-control"/>
+					<i class="fa fa-times" ng-click="deleteIngredient($index);"></i>
+				</p>
 			<p class="item"><span class="label">Instructions: </span><textarea id="instructions" class="form-control">{{recipe.instructions}}</textarea></p>
 		</div>
 		<div class="footer">

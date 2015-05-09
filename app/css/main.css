@@ -47,6 +47,12 @@ i {
 	padding: 25px 15px;
 }
 
+.recipes .date {
+	margin: 2px;
+	font-size: 18px;
+	color: #808080;
+}
+
 .recipes .form-control {
 	width: auto;
 	display: inline;
@@ -59,12 +65,17 @@ input.form-control {
 
 .recipe-detail .form-control, .recipe-detail select, .recipe-detail textarea {
 	margin-top: 3px;
-	margin-bottom: 2px;
+	margin-bottom: 20px;
+}
+
+.ingredients {
+	margin-bottom: 20px;
 }
 
 .recipe-detail .ingredients input, .recipe-detail .ingredients select {
-	width: 32%;
+	width: 31.5%;
 	display: inline;
+	margin-bottom: 3px;
 }
 
 .floatRight {
@@ -100,7 +111,7 @@ input.form-control {
 }
 
 .tag {
-	background-color: #E2E2E2;
+	background-color: #eee;
 	border-radius: 4px;
 	padding: 3px 3px 3px 8px;
 	margin-right: 3px;
@@ -120,14 +131,15 @@ input.form-control {
 	padding-right: 4px;
 }
 
-.item {
-	padding: 5px 0;
+p.item {
+	margin: 0px;
 }
 
 #title {
 	border:none;
 	box-shadow: none;
 	padding-left: 0;
+	margin-bottom: 0;
 }
 
 .search-panel button {
@@ -144,4 +156,20 @@ input.form-control {
 
 #added {
 	min-width: 250px;
+	margin: 0;
+}
+
+.input-group {
+ 	margin-bottom: 20px;
+	margin-top: 3px;	
+}
+
+#date-label {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.bootstrap-datetimepicker-widget table td.active, .bootstrap-datetimepicker-widget table td.active:hover {
+	background-color: #eee;
+	color: inherit;
 }

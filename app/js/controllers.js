@@ -7,6 +7,7 @@ recipeManagerControllers.controller('RecipesCtrl', ['$scope', '$http', '$rootSco
     $http.get('/api/recipe?tags=' + $rootScope.tag).success(function(data) {
         setTimeout(function(){ 
         $scope.recipes = $filter('orderBy')(data, 'title', false);
+        $scope.recipes = formatDate($scope.recipes);
         $scope.$apply();
       }, 50);
     });
@@ -14,10 +15,24 @@ recipeManagerControllers.controller('RecipesCtrl', ['$scope', '$http', '$rootSco
     $http.get('/api/recipe').success(function(data) {
       setTimeout(function(){ 
         $scope.recipes = $filter('orderBy')(data, 'title', false);
+        $scope.recipes = formatDate($scope.recipes);
         $scope.$apply();
       }, 50);
     });
   }
+
+  function formatDate(recipeList) {
+    var date;
+    var month;
+    var day;
+    var year;
+    for(var i = 0; i < recipeList.length; i++) {
+      date = moment(recipeList[i].added);
+      recipeList[i].added = date.format("ll");
+    }
+    return recipeList;
+  } 
+
 
   $(document).ready(function() {
     $("#sort").change(function() {
@@ -72,9 +87,33 @@ recipeManagerControllers.controller('RecipeDetailCtrl', ['$scope', '$routeParams
 
   if ($scope.recipeId !== 'new') {
     $http.get('/api/recipe/'+ $scope.recipeId).success(function(data) {
+      var date = data["added"];
+
+      date = moment(date);
+      date = date.format("MM/DD/YYYY");
+
+      data["added"] = date;
+
+      console.log(date);
+
+      $('#datetimepicker').datetimepicker({
+          format: "MM/DD/YYYY",
+          icons: {
+              time: "fa fa-clock-o",
+              date: "fa fa-calendar",
+              up: "fa fa-arrow-up",
+              down: "fa fa-arrow-down"
+          }
+      });
+
       $scope.recipe = data;
     });
   } else {
+
+    $('#datetimepicker').datetimepicker({
+        format: 'MM/DD/YYYY'
+    });
+
     $("#title").focus();
     var placeholder = {};
     placeholder["tags"] = [];
@@ -89,6 +128,7 @@ recipeManagerControllers.controller('RecipeDetailCtrl', ['$scope', '$routeParams
 
     $scope.recipe = placeholder;
   }
+
 
   $scope.deleteIngredient = function(index){
     delete $scope.recipe.ingredients[index];
@@ -116,6 +156,7 @@ recipeManagerControllers.controller('RecipeDetailCtrl', ['$scope', '$routeParams
   }
 
   $(document).ready(function() {
+
     $( ".tag-input" ).keypress(function( event ) {
       if ( event.which == 32 ) {
         if ($(this).val() !== '') {
@@ -161,17 +202,17 @@ recipeManagerControllers.controller('RecipeDetailCtrl', ['$scope', '$routeParams
     var units;
     var ingredient;
     $(".ingredients").each(function() {
-      var ingredient = {};
+      var ingredientData = {};
       qty = $(this).children(".qty").val();
       var e = $(this).children(".units")[0];
       units = e.options[e.selectedIndex].text;
       ingredient = $(this).children(".ingredient").val();
 
       if (qty !== '' && units !== '' && ingredient !== '') {
-        ingredient["qty"] = qty;
-        ingredient["units"] = units;
-        ingredient["ingredient"] = ingredient;
-        ingredients.push(ingredient);   
+        ingredientData["qty"] = qty;
+        ingredientData["units"] = units;
+        ingredientData["ingredient"] = ingredient;
+        ingredients.push(ingredientData);  
       }
 
     });
@@ -183,12 +224,14 @@ recipeManagerControllers.controller('RecipeDetailCtrl', ['$scope', '$routeParams
         $scope.recipe = data;
         $("#recipeId").val($scope.recipe._id);
         id = $("#recipeId").val();
+
+        setTimeout(function(){ 
+          $rootScope.$apply(function() {
+            $location.path('/recipes');
+          });
+        }, 100);
       });
-      // setTimeout(function(){ 
-        $rootScope.$apply(function() {
-          $location.path('/recipes');
-        });
-      // }, 100);
+     
 
       
     } else {
